@@ -1,0 +1,5 @@
+---
+- hosts: OSEv3:children
+  tasks:
+    - name: register system
+      command: subscription-manager repos --enable=rhel-7-server-extras-rpms

@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: Cleanup origin
+      command: yum -y remove 'origin*'

@@ -1,0 +1,11 @@
+---
+- hosts: nodes, masters
+  tasks:
+    - name: Install docker
+      command: yum -y install docker-1.12.6
+    - name: Setup docker storage config
+      copy: src=docker-storage-setup dest=/etc/sysconfig/docker-storage-setup
+    - name: Run docker storage setup
+      command: docker-storage-setup
+    - name: Restart docker
+      service: name=docker state=restarted enabled=yes

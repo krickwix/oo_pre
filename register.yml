@@ -1,0 +1,5 @@
+---
+- hosts: OSEv3:children
+  tasks:
+    - name: register system
+      redhat_subscription: state=present username='' password='' autosubscribe=true
