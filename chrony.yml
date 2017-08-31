@@ -1,0 +1,9 @@
+---
+- hosts: nodes, masters
+  tasks:
+    - name: Install chrony
+      command: yum -y install chrony
+    - name: Setup chrony
+      copy: src=chrony.conf dest=/etc/chrony.conf
+    - name: Restart chronyd
+      service: name=chronyd state=restarted enabled=yes
